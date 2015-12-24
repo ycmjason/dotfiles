@@ -10,9 +10,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'othree/html5.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mbbill/fencview'
+Plugin 'ap/vim-buftabline'
 
-Plugin 'ycmjason/tabline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,6 +32,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 syntax on          "syntax highlighing
+set hidden
+set relativenumber
 set number         "show line numbers
 set ruler          "show the cursor position all the time
 set hlsearch       "highlight searches
@@ -48,5 +52,8 @@ set foldmethod=manual
 nmap <Enter> o<Esc>
 nmap <C-J> ddp
 nmap <C-K> kddpk
+
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 
 iabbrev </ </<C-X><C-O>
