@@ -14,7 +14,6 @@ fi
 
 force_color_prompt=yes
 # Alias
-alias ls="ls --color=auto"
 alias rm="echo 'rm is disabled. Use trash or /bin/rm instead.'"
 
 # Tell ls to be colourful
