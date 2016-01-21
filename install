@@ -1,0 +1,39 @@
+#!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+SCRIPT_PATH="`dirname \"$0\"`"
+
+# check if git is installed
+command -v git >/dev/null 2>&1 || { echo >&2 "git is required for this installation but it's not installed.  Aborting."; exit 1; }
+git_command=`command -v git`
+
+# install bash_it
+bash_it_git="Bash-it/bash-it"
+echo "git clone https://github.com/$bash_it_git.git ~/.bash_it"
+echo "~/.bash_it/install.sh"
+if [ "$1" != "--dry-run" ]; then
+  $git_command clone --depth=1 https://github.com/$bash_it_git.git ~/.bash_it
+  ~/.bash_it/install.sh
+fi
+
+# copy all the rcs to ~ and backup the existing rcs with suffix '.backup'
+POSSIBLE_SUFFIX=("rc" "profile" "conf")
+for suffix in "${POSSIBLE_SUFFIX[@]}"; do
+  for file in `ls $SCRIPT_PATH/.*"$suffix"`; do
+    echo "cp --backup -S '.backup' $file ~/"
+    if [ "$1" != "--dry-run" ]; then
+      cp --backup -S '.backup' $file ~/
+    fi
+  done
+done
+
+# install vundle and plugins
+vundle_git="VundleVim/Vundle.vim"
+echo "git clone https://github.com/$vundle_git.git ~/.vim/bundle/Vundle.vim"
+if [ "$1" != "--dry-run" ]; then
+  $git_command clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall
+fi
+
+# cleaning up
+echo -e "\n${RED}Please relogin to see changes.${NC}"
