@@ -19,10 +19,17 @@ fi
 # copy all the rcs to ~ and backup the existing rcs with suffix '.backup'
 POSSIBLE_SUFFIX=("rc" "profile" "conf")
 for suffix in "${POSSIBLE_SUFFIX[@]}"; do
-  for file in `ls $SCRIPT_PATH/.*"$suffix"`; do
-    echo "cp --backup -S '.backup' $file ~/"
+  for filename in `ls -a $SCRIPT_PATH | grep ".*${suffix}"`; do
+    file=${SCRIPT_PATH}/${filename}
+    if [ -f ~/${filename} ]; then
+      echo "cp ~/${filename} ~/${filename}.backup"
+    fi
+    echo "cp $file ~/"
     if [ "$1" != "--dry-run" ]; then
-      cp --backup -S '.backup' $file ~/
+      if [ -f ~/${filename} ]; then
+        cp ~/${filename} ~/${filename}.backup
+      fi
+      cp $file ~/
     fi
   done
 done
