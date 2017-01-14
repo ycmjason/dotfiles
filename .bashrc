@@ -1,6 +1,8 @@
 ### PLEASE DON'T CHANGE THIS FILE UNLESS THE COMMANDS ARE KNOWN TO BE MACHINE INDEPENDENT #####
 
 # welcome message
+if [[ $- =~ "i" ]]; then
+
 echo "                      Welcome back Jason, Hi!"
 set filec
 set autolist
@@ -37,4 +39,12 @@ fi
 # source some machine dependent commands
 if [ -f ~/.bash_custom_profile ]; then
   source ~/.bash_custom_profile
+fi
+
+###-tns-completion-start-###
+if [ -f /Users/ycmjason/.tnsrc ]; then 
+    source /Users/ycmjason/.tnsrc 
+fi
+###-tns-completion-end-###
+
 fi

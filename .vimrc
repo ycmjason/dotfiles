@@ -11,9 +11,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'pangloss/vim-javascript'
 Plugin 'mbbill/fencview'
 Plugin 'ap/vim-buftabline'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'pangloss/vim-javascript'
 
 
 " All of your Plugins must be added before the following line
