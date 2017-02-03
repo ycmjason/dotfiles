@@ -20,13 +20,12 @@ alias rm="echo 'rm is disabled. Use trash or /bin/rm instead.'"
 
 # Tell ls to be colourful
 export TERM=xterm-256color # quit vim without leaving stuff on screen
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 
 # Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
+alias grep='grep --color=auto'
 
 
 # enable programmable completion features (you don't need to enable
