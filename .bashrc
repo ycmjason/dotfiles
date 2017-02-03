@@ -1,8 +1,9 @@
 ### PLEASE DON'T CHANGE THIS FILE UNLESS THE COMMANDS ARE KNOWN TO BE MACHINE INDEPENDENT #####
 
-# welcome message
+# this is to ignore .bashrc on scp
 if [[ $- =~ "i" ]]; then
 
+# welcome message
 echo "                      Welcome back Jason, Hi!"
 set filec
 set autolist
@@ -17,6 +18,7 @@ fi
 force_color_prompt=yes
 # Alias
 alias rm="echo 'rm is disabled. Use trash or /bin/rm instead.'"
+alias vi="vim"
 
 # Tell ls to be colourful
 export TERM=xterm-256color # quit vim without leaving stuff on screen
