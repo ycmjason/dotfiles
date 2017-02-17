@@ -22,14 +22,14 @@ for suffix in "${POSSIBLE_SUFFIX[@]}"; do
   for filename in `ls -a $SCRIPT_PATH | grep ".*${suffix}"`; do
     file=${SCRIPT_PATH}/${filename}
     if [ -f ~/${filename} ]; then
-      echo "cp ~/${filename} ~/${filename}.backup"
+      echo "cp -r ~/${filename} ~/${filename}.backup"
     fi
     echo "cp $file ~/"
     if [ "$1" != "--dry-run" ]; then
       if [ -f ~/${filename} ]; then
-        cp ~/${filename} ~/${filename}.backup
+        cp -r ~/${filename} ~/${filename}.backup
       fi
-      cp $file ~/
+      cp -r $file ~/
     fi
   done
 done
