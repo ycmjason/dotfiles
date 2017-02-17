@@ -6,14 +6,14 @@ You might need to copy all files under that to make it work.
 ##install
 just run dotfiles/install to install everything
 
+##.ssh/config
+contains hosts that I use a lot
+
 ##.bashrc
 This file contains the main profile of bash
 
 ##.bash_profile
 include .bashrc
-
-##.bash_custom_profile (not included)
-This file should contain machine dependent profiles
 
 ##.bash_itrc
 contians config about themes in bash_it
