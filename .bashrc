@@ -24,28 +24,19 @@ alias vi="vim"
 export TERM=xterm-256color # quit vim without leaving stuff on screen
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 
 # Tell grep to highlight matches
 alias grep='grep --color=auto'
 
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+  . /etc/bash_completion
 fi
-
-# source some machine dependent commands
-if [ -f ~/.bash_custom_profile ]; then
-  source ~/.bash_custom_profile
-fi
-
-###-tns-completion-start-###
-if [ -f /Users/ycmjason/.tnsrc ]; then 
-    source /Users/ycmjason/.tnsrc 
-fi
-###-tns-completion-end-###
 
 fi

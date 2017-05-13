@@ -3,44 +3,84 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 SCRIPT_PATH="`dirname \"$0\"`"
 
-# check if git is installed
-command -v git >/dev/null 2>&1 || { echo >&2 "git is required for this installation but it's not installed.  Aborting."; exit 1; }
-git_command=`command -v git`
+# abort on error
+set -e
 
-# install bash_it
-bash_it_git="Bash-it/bash-it"
-echo "git clone https://github.com/$bash_it_git.git ~/.bash_it"
-echo "~/.bash_it/install.sh"
-if [ "$1" != "--dry-run" ]; then
-  $git_command clone --depth=1 https://github.com/$bash_it_git.git ~/.bash_it
-  ~/.bash_it/install.sh
+if [ "$1" == "--dry-run" ]; then
+  echo "Dry run mode..."; echo
+  DRY_RUN=1
 fi
 
-# copy all the rcs to ~ and backup the existing rcs with suffix '.backup'
-POSSIBLE_SUFFIX=("rc" "profile" "conf")
-for suffix in "${POSSIBLE_SUFFIX[@]}"; do
-  for filename in `ls -a $SCRIPT_PATH | grep ".*${suffix}"`; do
-    file=${SCRIPT_PATH}/${filename}
-    if [ -f ~/${filename} ]; then
-      echo "cp -r ~/${filename} ~/${filename}.backup"
-    fi
-    echo "cp $file ~/"
-    if [ "$1" != "--dry-run" ]; then
-      if [ -f ~/${filename} ]; then
-        cp -r ~/${filename} ~/${filename}.backup
-      fi
-      cp -r $file ~/
-    fi
-  done
+function run {
+  echo "  > $1"
+  if [ -z "$DRY_RUN" ]; then
+    eval $1
+  fi
+}
+
+function find_command {
+  command -v git >/dev/null 2>&1 || { echo >&2 "git is required for this installation but it's not installed.  Aborting."; exit 1; }
+  echo `command -v $1`
+}
+
+# check if git is installed
+git_command=`find_command git`
+# check if curl is installed
+curl_command=`find_command curl`
+# check if ruby is installed
+ruby_command=`find_command ruby`
+
+# install linuxbrew
+echo "# Installing linuxbrew"
+brew_install="printf '\n' | ${ruby_command} -e \"\`curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install\`\""
+run "$brew_install"
+PATH="$HOME/.linuxbrew/bin:$PATH"
+brew_command=`which brew`
+run "$brew_command update"
+
+PROGRAMS="gcc wget vim tmux n python ruby git"
+for pname in $PROGRAMS; do
+  run "${brew_command} install ${pname}"
 done
 
-# install vundle and plugins
-vundle_git="VundleVim/Vundle.vim"
-echo "git clone https://github.com/$vundle_git.git ~/.vim/bundle/Vundle.vim"
-if [ "$1" != "--dry-run" ]; then
-  $git_command clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  vim +PluginInstall +qall
-fi
+# install node with n
+echo "# Installing node with n"
+run "sudo -k chown -R $USER /usr/local/"
+run "n lts"
+run "n stable"
+
+# install bash_it
+echo "# Installing Bash-it"
+bash_it_git="Bash-it/bash-it"
+bash_it_location="${HOME}/.bash_it"
+bash_it_clone="$git_command clone --depth=1 https://github.com/$bash_it_git.git ${bash_it_location}"
+bash_it_install="${HOME}/.bash_it/install.sh --silent"
+run "rm -rf ${bash_it_location}"
+run "$bash_it_clone"
+run "$bash_it_install"
+
+# copy dot files
+FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh"
+for filename in $FILES; do
+  echo "# Copying ${filename}"
+  from_file="${SCRIPT_PATH}/${filename}"
+  to_file="${HOME}/${filename}"
+  backup_file="cp -r ${to_file} ${to_file}.backup"
+  copy_file="cp -r ${from_file} ${to_file}"
+  if [ -f "${to_file}" ]; then
+    run "$backup_file"
+  fi
+  run "$copy_file"
+  echo
+done
+
+# vim plug
+echo "# Installing vim plug"
+vim_plug="$curl_command -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+run "$vim_plug"
+run "printf '\n' | vim +PlugInstall +qall"
+echo
 
 # cleaning up
 echo -e "\n${RED}Please relogin to see changes.${NC}"
