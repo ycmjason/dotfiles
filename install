@@ -50,7 +50,9 @@ done
 
 # install node with n
 echo "# Installing node with n"
-run "sudo -k chown -R $USER /usr/local/"
+if [ `stat -c %U /usr/local` != $USER ]; then
+  run "sudo -k chown -R $USER /usr/local/"
+fi
 run "n lts"
 run "n stable"
 
@@ -67,6 +69,23 @@ bash_it_install="${HOME}/.bash_it/install.sh --silent"
 run "rm -rf ${bash_it_location}"
 run "$bash_it_clone"
 run "$bash_it_install"
+
+set +e
+run "source $HOME/.bash_it/bash_it.sh"
+set -e
+
+run "bash-it enable alias general"
+run "bash-it enable alias fuck"
+
+run "bash-it enable completion bash-it"
+run "bash-it enable completion brew"
+run "bash-it enable completion git"
+run "bash-it enable completion npm"
+run "bash-it enable completion ssh"
+run "bash-it enable completion system"
+
+run "bash-it enable plugin extract"
+run "bash-it enable plugin alias-completion"
 
 # copy dot files
 for filename in $DOT_FILES; do
