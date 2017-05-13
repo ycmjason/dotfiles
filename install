@@ -54,6 +54,10 @@ run "sudo -k chown -R $USER /usr/local/"
 run "n lts"
 run "n stable"
 
+# install gitignorer
+echo "# Installing gitignorer"
+run "npm i -g gitignorer"
+
 # install bash_it
 echo "# Installing Bash-it"
 bash_it_git="Bash-it/bash-it"
