@@ -1,6 +1,6 @@
 #!/bin/bash
 ## settings...
-DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/."
+DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/. .gitconfig"
 BREW_PROGRAMS="gcc wget vim tmux n python ruby git ssh-copy-id"
 
 ## settings end
