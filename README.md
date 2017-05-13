@@ -13,7 +13,10 @@ contains hosts that I use a lot
 This file contains the main profile of bash
 
 ##.bash_profile
-include .bashrc
+This file only does `source .bashrc`
+
+## .inputrc
+I am so use to auto-completing-menu, so I define them here.
 
 ##.bash_itrc
 contians config about themes in bash_it

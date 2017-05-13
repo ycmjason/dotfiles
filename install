@@ -1,4 +1,10 @@
 #!/bin/bash
+## settings...
+DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/."
+BREW_PROGRAMS="gcc wget vim tmux n python ruby git ssh-copy-id"
+
+## settings end
+
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 SCRIPT_PATH="`dirname \"$0\"`"
@@ -38,8 +44,7 @@ PATH="$HOME/.linuxbrew/bin:$PATH"
 brew_command=`which brew`
 run "$brew_command update"
 
-PROGRAMS="gcc wget vim tmux n python ruby git"
-for pname in $PROGRAMS; do
+for pname in $BREW_PROGRAMS; do
   run "${brew_command} install ${pname}"
 done
 
@@ -60,13 +65,12 @@ run "$bash_it_clone"
 run "$bash_it_install"
 
 # copy dot files
-FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh"
-for filename in $FILES; do
+for filename in $DOT_FILES; do
   echo "# Copying ${filename}"
   from_file="${SCRIPT_PATH}/${filename}"
   to_file="${HOME}/${filename}"
-  backup_file="cp -r ${to_file} ${to_file}.backup"
-  copy_file="cp -r ${from_file} ${to_file}"
+  copy_file="cp -a ${from_file} ${to_file}"
+  backup_file="cp -a ${to_file} ${to_file}.backup"
   if [ -f "${to_file}" ]; then
     run "$backup_file"
   fi
@@ -76,10 +80,9 @@ done
 
 # vim plug
 echo "# Installing vim plug"
-vim_plug="$curl_command -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+vim_plug="$curl_command -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 run "$vim_plug"
-run "printf '\n' | vim +PlugInstall +qall"
+run "vim +PlugInstall +qall"
 echo
 
 # cleaning up
