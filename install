@@ -2,6 +2,11 @@
 ## settings...
 DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/. .gitconfig"
 BREW_PROGRAMS="gcc wget vim tmux n python ruby git ssh-copy-id"
+NPM_MODULES="gitignorer trash-cli"
+BASH_IT_ALIAS="general fuck"
+BASH_IT_COMPLETIONS="bash-it brew git npm ssh system"
+BASH_IT_PLUGINS="extract alias-completion"
+
 
 ## settings end
 
@@ -36,6 +41,11 @@ curl_command=`find_command curl`
 # check if ruby is installed
 ruby_command=`find_command ruby`
 
+
+
+
+
+
 # install linuxbrew
 echo "# Installing linuxbrew"
 brew_install="printf '\n' | ${ruby_command} -e \"\`curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install\`\""
@@ -48,6 +58,12 @@ for pname in $BREW_PROGRAMS; do
   run "${brew_command} install ${pname}"
 done
 
+
+
+
+
+
+
 # install node with n
 echo "# Installing node with n"
 if [ `stat -c %U /usr/local` != $USER ]; then
@@ -56,9 +72,14 @@ fi
 run "n lts"
 run "n stable"
 
-# install gitignorer
-echo "# Installing gitignorer"
-run "npm i -g gitignorer"
+for pname in $NPM_MODULES; do
+  echo "# Installing ${pname}"
+  run "npm i -g ${pname}"
+done
+
+
+
+
 
 # install bash_it
 echo "# Installing Bash-it"
@@ -74,18 +95,22 @@ set +e
 run "source $HOME/.bash_it/bash_it.sh"
 set -e
 
-run "bash-it enable alias general"
-run "bash-it enable alias fuck"
+for n in $BASH_IT_ALIAS; do
+  run "bash-it enable alias ${n}"
+done
 
-run "bash-it enable completion bash-it"
-run "bash-it enable completion brew"
-run "bash-it enable completion git"
-run "bash-it enable completion npm"
-run "bash-it enable completion ssh"
-run "bash-it enable completion system"
+for n in $BASH_IT_COMPLETIONS; do
+  run "bash-it enable completion ${n}"
+done
 
-run "bash-it enable plugin extract"
-run "bash-it enable plugin alias-completion"
+for n in $BASH_IT_PLUGINS; do
+  run "bash-it enable plugin ${n}"
+done
+
+
+
+
+
 
 # copy dot files
 for filename in $DOT_FILES; do
@@ -101,12 +126,21 @@ for filename in $DOT_FILES; do
   echo
 done
 
+
+
+
+
+
 # vim plug
 echo "# Installing vim plug"
 vim_plug="$curl_command -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 run "$vim_plug"
 run "vim +PlugInstall +qall"
 echo
+
+
+
+
 
 # cleaning up
 echo -e "\n${RED}Please relogin to see changes.${NC}"
