@@ -34,6 +34,7 @@ export PATH="$HOME/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.linuxbrew/sbin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+export XDG_DATA_DIRS="/home/ycmjason/.linuxbrew/share:$XDG_DATA_DIRS"
 
 
 # Tell grep to highlight matches
