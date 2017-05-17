@@ -25,10 +25,6 @@ export TERM=xterm-256color # quit vim without leaving stuff on screen
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# homebrew
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
 # linuxbrew
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.linuxbrew/sbin:$PATH"

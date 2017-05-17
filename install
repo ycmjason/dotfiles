@@ -1,7 +1,7 @@
 #!/bin/bash
 ## settings...
 DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/. .gitconfig"
-BREW_PROGRAMS="gcc wget vim tmux n python ruby git ssh-copy-id"
+BREW_PROGRAMS="gcc ruby python n wget vim tmux git ssh-copy-id"
 NPM_MODULES="gitignorer trash-cli"
 BASH_IT_ALIAS="general fuck"
 BASH_IT_COMPLETIONS="bash-it brew git npm ssh system"
@@ -48,9 +48,18 @@ ruby_command=`find_command ruby`
 
 # install linuxbrew
 echo "# Installing linuxbrew"
-brew_install="printf '\n' | ${ruby_command} -e \"\`curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install\`\""
-run "$brew_install"
+if [ ! -d "$HOME/.linuxbrew" ]; then
+  # if ~/.linuxbrew doesn't exist
+  brew_install="git clone https://github.com/Linuxbrew/brew $HOME/.linuxbrew"
+  run "$brew_install"
+fi
+
 PATH="$HOME/.linuxbrew/bin:$PATH"
+PATH="$HOME/.linuxbrew/sbin:$PATH"
+MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
+
 brew_command=`which brew`
 run "$brew_command update"
 
@@ -92,6 +101,7 @@ run "$bash_it_clone"
 run "$bash_it_install"
 
 set +e
+BASH_IT=~/.bash_it
 run "source $HOME/.bash_it/bash_it.sh"
 set -e
 
