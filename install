@@ -136,6 +136,9 @@ for filename in $DOT_FILES; do
   echo
 done
 
+# Set ~/.ssh/config to 600
+run "chmod 600 $HOME/.ssh/config"
+
 
 
 
