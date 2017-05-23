@@ -5,6 +5,7 @@ var common = [
 
 var node = common.concat([
   'node_modules',
+  'npm-debug.log*',
 ]);
 
 module.exports = {
