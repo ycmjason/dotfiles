@@ -1,6 +1,6 @@
 #!/bin/bash
 ## settings...
-DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/. .gitconfig"
+DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/. .gitconfig .gitignore.profiles.js"
 BREW_PROGRAMS="gcc ruby python n wget vim tmux git ssh-copy-id"
 NPM_MODULES="gitignorer trash-cli"
 BASH_IT_ALIAS="general fuck"
