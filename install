@@ -1,7 +1,8 @@
 #!/bin/bash
 ## settings...
 DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/. .gitconfig .gitignore.profiles.js"
-BREW_PROGRAMS="gcc ruby python n wget vim tmux git ssh-copy-id"
+BREW_PROGRAMS="gcc ruby python python3 n wget vim tmux git ssh-copy-id"
+PIP3_PROGRAMS="thefuck"
 NPM_MODULES="gitignorer trash-cli"
 BASH_IT_ALIAS="general fuck"
 BASH_IT_COMPLETIONS="bash-it brew git npm ssh system"
@@ -69,7 +70,12 @@ done
 
 
 
-
+# install pip programs
+echo "# Installing pip3 programs"
+pip3_command=`which pip3`
+for pname in $PIP3_PROGRAMS; do
+  run "${pip3_command} install --user ${pname}"
+done
 
 
 
