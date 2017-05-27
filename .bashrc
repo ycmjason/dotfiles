@@ -35,6 +35,8 @@ export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
 
 # Tell grep to highlight matches
 alias grep='grep --color=auto'
+# This forces tmux to launch with unicode
+alias tmux='tmux -u'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
