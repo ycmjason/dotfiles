@@ -32,6 +32,8 @@ export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
 
+# make sure editor is set to vim
+export EDITOR=vim;
 
 # Tell grep to highlight matches
 alias grep='grep --color=auto'
