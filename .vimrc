@@ -12,6 +12,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
+Plug 'posva/vim-vue'
 
 " Initialize plugin system
 call plug#end()
