@@ -13,6 +13,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
 Plug 'ap/vim-css-color'
 Plug 'posva/vim-vue'
+Plug 'JulesWang/css.vim'
+Plug 'cakebaker/scss-syntax.vim'
 
 " Initialize plugin system
 call plug#end()
