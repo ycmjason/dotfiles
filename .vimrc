@@ -15,6 +15,7 @@ Plug 'ap/vim-css-color'
 Plug 'posva/vim-vue'
 Plug 'JulesWang/css.vim'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'godlygeek/tabular'
 
 " Initialize plugin system
 call plug#end()
