@@ -1,3 +1,9 @@
+let g:ctrlp_map = '<C-F>'
+let g:ctrlp_cmd = 'CtrlPNerdTree'
+let g:ctrlp_max_files=50000
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_working_path_mode = 'rwa'
+let g:ctrlp_regexp = 1
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -11,11 +17,16 @@ Plug 'ap/vim-buftabline'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
-Plug 'ap/vim-css-color'
 Plug 'posva/vim-vue'
-Plug 'JulesWang/css.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'ap/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'JulesWang/css.vim' " only necessary if your Vim version < 7.4
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'godlygeek/tabular'
+Plug 'voronkovich/ctrlp-nerdtree.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -40,7 +51,10 @@ set foldmethod=manual
 nmap <Enter> o<Esc>
 nmap <C-J> ddp
 nmap <C-K> ddkP
+nmap <F8> :TagbarToggle<CR>
 
 set hidden
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
+
+autocmd User AsyncRunStart :copen
