@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdtree'
+let NERDTreeIgnore = ['\..*sw.']
 Plug 'mbbill/fencview'
 Plug 'ap/vim-buftabline'
 Plug 'leafgarland/typescript-vim'
