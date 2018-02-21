@@ -4,6 +4,9 @@ let g:ctrlp_max_files=50000
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_regexp = 1
+
+let NERDTreeIgnore = ['\..*sw.']
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
@@ -12,7 +15,6 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdtree'
-let NERDTreeIgnore = ['\..*sw.']
 Plug 'mbbill/fencview'
 Plug 'ap/vim-buftabline'
 Plug 'leafgarland/typescript-vim'
@@ -28,6 +30,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'godlygeek/tabular'
 Plug 'voronkovich/ctrlp-nerdtree.vim'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'Valloric/YouCompleteMe'
 
 " Initialize plugin system
 call plug#end()
