@@ -1,10 +1,13 @@
 ### PLEASE DON'T CHANGE THIS FILE UNLESS THE COMMANDS ARE KNOWN TO BE MACHINE INDEPENDENT #####
 
 # this is to ignore .bashrc on scp
-if [[ $- =~ "i" ]]; then
+case $- in
+  *i*) ;;
+  *) return;;
+esac
 
 # welcome message
-echo "                      Welcome back Jason, Hi!"
+echo -e "\033[1;0m                Hello Jason. Welcome back!\033[0m"
 set filec
 set autolist
 set nobeep
@@ -28,13 +31,25 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # linuxbrew
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.linuxbrew/sbin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
+export LC_ALL="en_US.utf-8"
+export LANG="$LC_ALL"
+
+export NODE_PATH="/usr/local/lib/node_modules/"
 
 # make sure editor is set to vim
 export EDITOR=vim;
 
+# Tell ls to be colorful
+alias grep='ls --color=auto'
 # Tell grep to highlight matches
 alias grep='grep --color=auto'
 # This forces tmux to launch with unicode
@@ -47,4 +62,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
+if [[ "$(uname)" =~ Darwin ]]; then
+  alias xclip='pbcopy'
 fi
