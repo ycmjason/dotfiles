@@ -1,9 +1,9 @@
 #!/bin/bash
 ## settings...
 DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/. .gitconfig .gitignore.profiles.js .npmrc"
-BREW_PROGRAMS="bash coreutils findutils gcc ruby python python3 n vim tmux git openssl openssh heroku libevent libpng libtool wget cmake automake autoconf ssh-copy-id"
+BREW_PROGRAMS="bash coreutils findutils gcc ruby python python3 n vim tmux git openssl openssh heroku libevent libpng libtool wget cmake automake autoconf ssh-copy-id lolcat fortune"
 PIP3_PROGRAMS="thefuck"
-NPM_MODULES="gitignorer trash-cli tldr typescript json"
+NPM_MODULES="gitignorer trash-cli tldr typescript json cowsay"
 BASH_IT_ALIAS="general fuck git"
 BASH_IT_COMPLETIONS="bash-it brew git npm ssh system"
 BASH_IT_PLUGINS="extract alias-completion"
