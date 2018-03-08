@@ -6,8 +6,6 @@ case $- in
   *) return;;
 esac
 
-# welcome message
-echo -e "\033[1;0m                Hello Jason. Welcome back!\033[0m"
 set filec
 set autolist
 set nobeep
