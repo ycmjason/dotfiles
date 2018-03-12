@@ -157,6 +157,8 @@ run "$vim_plug"
 run "vim +PlugInstall +qall"
 echo
 
+# vim youcompleteme
+$HOME/.vim/plugged/youCompleteMe/install.py --js-completer
 
 
 
