@@ -17,9 +17,6 @@ if [ -f ~/.bash_itrc ]; then
 fi
 
 force_color_prompt=yes
-# Alias
-alias rm="echo 'rm is disabled. Use trash or /bin/rm instead.'"
-alias vi="vim"
 
 # Tell ls to be colourful
 export TERM=xterm-256color # quit vim without leaving stuff on screen
@@ -30,12 +27,11 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.linuxbrew/sbin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="$HOME/.linuxbrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$HOME/.linuxbrew/opt/findutils/libexec/gnubin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+export MANPATH="$HOME/.linuxbrew/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPATH="$HOME/.linuxbrew/opt/findutils/libexec/gnuman:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
 export LC_ALL="en_US.utf-8"
@@ -46,10 +42,6 @@ export NODE_PATH="/usr/local/lib/node_modules/"
 # make sure editor is set to vim
 export EDITOR=vim;
 
-# Tell ls to be colorful
-alias grep='ls --color=auto'
-# Tell grep to highlight matches
-alias grep='grep --color=auto'
 # This forces tmux to launch with unicode
 alias tmux='tmux -u'
 
@@ -58,10 +50,6 @@ alias tmux='tmux -u'
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
-fi
-
-if [[ "$(uname)" =~ Darwin ]]; then
-  alias xclip='pbcopy'
 fi
 
 ### PLEASE DON'T CHANGE THIS FILE UNLESS THE COMMANDS ARE KNOWN TO BE MACHINE INDEPENDENT #####
@@ -82,7 +70,6 @@ if [ -f ~/.bash_itrc ]; then
   source ~/.bash_itrc
 fi
 
-force_color_prompt=yes
 # Alias
 alias rm="echo 'rm is disabled. Use trash or /bin/rm instead.'"
 alias vi="vim"
@@ -97,11 +84,11 @@ export PATH="$HOME/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.linuxbrew/sbin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="$HOME/.linuxbrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$HOME/.linuxbrew/opt/findutils/libexec/gnubin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
+export MANPATH="$HOME/.linuxbrew/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPATH="$HOME/.linuxbrew/opt/findutils/libexec/gnuman:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
 export LC_ALL="en_US.utf-8"
@@ -112,8 +99,6 @@ export NODE_PATH="/usr/local/lib/node_modules/"
 # make sure editor is set to vim
 export EDITOR=vim;
 
-# Tell ls to be colorful
-alias ls='ls --color=auto'
 # Tell grep to highlight matches
 alias grep='grep --color=auto'
 # This forces tmux to launch with unicode
@@ -137,6 +122,11 @@ if [[ "$(uname)" =~ Darwin ]]; then
 fi
 
 # welcome message
-fortune | cowsay -f $(cowsay -l | xargs shuf -n1 -e) | lolcat
+fortune | cowsay -f $(cowsay -l | xargs gshuf -n1 -e) | lolcat
 echo
 echo "                       Hi Jason, welcome back!" | lolcat
+
+alias rm="echo 'rm is disabled. Use trash or /bin/rm instead.'"
+alias vi="vim"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
