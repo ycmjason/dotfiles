@@ -3,7 +3,7 @@
 DOT_FILES=".bash_itrc .bash_profile .bashrc .inputrc .tmux.conf .vimrc .ssh/. .gitconfig .gitignore.profiles.js .npmrc"
 BREW_PROGRAMS="bash coreutils findutils gcc ruby python python3 n vim tmux git openssl openssh heroku libevent libpng libtool wget cmake automake autoconf ssh-copy-id lolcat fortune thefuck"
 PIP3_PROGRAMS=""
-NPM_MODULES="gitignorer trash-cli tldr typescript json cowsay"
+NPM_MODULES="gitignorer trash-cli tldr typescript json cowsay ncu"
 BASH_IT_ALIAS="general fuck git clipboard"
 BASH_IT_COMPLETIONS="bash-it brew git npm ssh system"
 BASH_IT_PLUGINS="extract alias-completion"
