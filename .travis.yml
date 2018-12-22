@@ -5,4 +5,4 @@ before_install:
   - docker build -t dotfiles .
 
 script:
-  - docker run dotfiles /dotfiles/install
+  - docker run dotfiles
