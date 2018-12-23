@@ -152,13 +152,13 @@ run "chmod 600 $HOME/.ssh/config"
 
 # vim plug
 echo "# Installing vim plug"
-vim_plug="$curl_command -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+vim_plug="$curl_command -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 run "$vim_plug"
-run "vim +PlugInstall +qall"
+run "nvim +PlugInstall +qall"
 echo
 
 # vim youcompleteme
-$HOME/.vim/plugged/youCompleteMe/install.py --js-completer
+$HOME/.config/nvim/plugged/YouCompleteMe/install.py --js-completer
 
 
 
