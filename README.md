@@ -1,35 +1,25 @@
 # dotfiles
 
+[![Build Status](https://travis-ci.com/ycmjason/dotfiles.svg?branch=master)](https://travis-ci.com/ycmjason/dotfiles)
+
 This repo has all of my important dotfiles which all toether define my working environment. Follow the following instruction if you want to clone my env to yours.
 
 You might need to copy all files under that to make it work.
 
 ## install
-just run dotfiles/install to install everything
+Just run `install` to install everything.
 
-## .ssh/config
-contains hosts that I use a lot
+## Test
 
-## .bashrc
-This file contains the main profile of bash
+The travis build uses run the following:
 
-## .bash_profile
-This file only does `source .bashrc`
+```
+docker build -t dotfiles .
+docker run dotfiles
+```
 
-## .inputrc
-I am so use to auto-completing-menu, so I define them here.
+The `Dockerfile` will basically try to run `install` on Ubuntu 18. If any of the commands in `install` exit with `1`, the build fails.
 
-## .bash_itrc
-contians config about themes in bash_it
 
-## .vimrc
-This file defines all the configs that I use for vim.
-
-## .tmux.conf
-This file defines all the configs that I use for tmux. Might be system dependent, so change it slightly when you encounter any error.
-
-## .npmrc
-This file defines my npm user email and name.
-
-## .gitignore.profiles.js
-This file defines the profiles used by [gitignorer](https://www.npmjs.com/package/gitignorer).
+## Author
+Jason Yu
