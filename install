@@ -135,7 +135,7 @@ for filename in $DOT_FILES; do
   to_file="${HOME}/${filename}"
   copy_file="cp -a -r ${from_file} ${to_file}"
   backup_file="cp -a -r ${to_file} ${to_file}.backup"
-  if [ -f "${to_file}" ]; then
+  if [ -e "${to_file}" ]; then
     run "$backup_file"
   fi
   run "$copy_file"
@@ -158,7 +158,7 @@ run "nvim +PlugInstall +qall"
 echo
 
 # vim youcompleteme
-$HOME/.config/nvim/plugged/YouCompleteMe/install.py --js-completer
+run "$HOME/.config/nvim/plugged/YouCompleteMe/install.py --ts-completer"
 
 
 
