@@ -1,0 +1,43 @@
+{
+  "window.zoomLevel": 2,
+  "git.autofetch": true,
+  "editor.lineNumbers": "relative",
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "enter",
+      ],
+      "after": [
+        "o",
+        "<esc>",
+      ]
+    },
+    {
+      "before": ["ctrl+p"],
+      "after": [
+        "g",
+        "T"
+      ]
+    },
+    {
+      "before": ["ctrl+n"],
+      "after": [
+        "g",
+        "t"
+      ]
+    },
+    {
+      "before": [
+        "£",
+      ],
+      "after": [
+        "#",
+      ]
+    }
+  ],
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "vim.hlsearch": true,
+  "vim.mouseSelectionGoesIntoVisualMode": false,
+  "editor.autoClosingBrackets": "never"
+}

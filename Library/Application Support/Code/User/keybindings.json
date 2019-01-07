@@ -1,0 +1,33 @@
+// Place your key bindings in this file to overwrite the defaultsauto[]
+[
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.previousEditor",
+    "when": "editorTextFocus && !suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-showPrevParameterHint",
+    "when": "editorTextFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "-cursorUp",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "i",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-explorer.openToSide",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  {
+    "key": "o",
+    "command": "list.select",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+]
