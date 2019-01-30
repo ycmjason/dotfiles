@@ -66,11 +66,11 @@ brew_command=`which brew`
 run "$brew_command update"
 
 for pname in $BREW_PROGRAMS; do
-  run "${brew_command} install --verbose ${pname}"
+  run "${brew_command} install ${pname}"
 done
 
 for pname in $BREW_CASKS; do
-  run "${brew_command} cask install --verbose ${pname}"
+  run "${brew_command} cask install ${pname}"
 done
 
 
