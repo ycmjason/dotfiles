@@ -1,4 +1,4 @@
 os: osx
 osx_image: xcode10.1
 language: minimal
-script: travis_wait 120 ./install
+script: travis_wait 9999 ./install
