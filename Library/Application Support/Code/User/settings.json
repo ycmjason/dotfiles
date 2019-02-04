@@ -1,5 +1,5 @@
 {
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 3,
   "git.autofetch": true,
   "editor.lineNumbers": "relative",
   "vim.normalModeKeyBindings": [
@@ -39,5 +39,8 @@
   "editor.detectIndentation": false,
   "vim.hlsearch": true,
   "vim.mouseSelectionGoesIntoVisualMode": false,
-  "editor.autoClosingBrackets": "never"
+  "editor.autoClosingBrackets": "never",
+  "javascript.validate.enable": false,
+  "workbench.colorTheme": "Solarized Dark",
+  "javascript.updateImportsOnFileMove.enabled": "always",
 }

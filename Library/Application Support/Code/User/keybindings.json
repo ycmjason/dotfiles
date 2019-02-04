@@ -21,6 +21,11 @@
     "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
   },
   {
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  {
     "key": "ctrl+enter",
     "command": "-explorer.openToSide",
     "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
@@ -28,6 +33,6 @@
   {
     "key": "o",
     "command": "list.select",
-    "when": "explorerViewletVisible && filesExplorerFocus"
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
 ]

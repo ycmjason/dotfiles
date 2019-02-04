@@ -11,22 +11,27 @@ let g:ale_pattern_options = {
 
 let NERDTreeIgnore = ['\..*sw.']
 
+let g:html5_custom_tag_requires_hyphen = 0
+
 call plug#begin('~/.config/nvim/plugged')
 
 " Make sure you use single quotes
 Plug 'dart-lang/dart-vim-plugin'
-" Plug 'othree/html5.vim'
+Plug 'othree/html5.vim'
 Plug 'scrooloose/nerdtree'
 " Plug 'mbbill/fencview'
 Plug 'ap/vim-buftabline'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 Plug 'godlygeek/tabular'
-" Plug 'posva/vim-vue'
+Plug 'posva/vim-vue'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Plug 'majutsushi/tagbar'
-" Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'JulesWang/css.vim'
 " Plug 'amadeus/vim-css'
 " Plug 'godlygeek/tabular'
 " Plug 'voronkovich/ctrlp-nerdtree.vim'
@@ -35,7 +40,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
-" Plug 'natebosch/vim-lsc'
 " let g:lsc_server_commands = {'dart': 'dart_language_server'}
 " let g:lsc_auto_map = v:true
 
@@ -68,3 +72,6 @@ nnoremap <C-P> :bprev<CR>
 
 nnoremap / /\v
 cnoremap %s/ %s/\v
+
+nmap <C-J> ddp
+nmap <C-K> ddkP
