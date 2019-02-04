@@ -10,7 +10,7 @@ BASH_IT_COMPLETIONS="bash-it brew git npm ssh system"
 BASH_IT_PLUGINS="extract alias-completion"
 
 if [ "$ENV" == "CI" ]; then
-  BREW_PROGRAMS="coreutils n python"
+  BREW_PROGRAMS="coreutils n python nvim"
   BREW_CASKS="google-chrome"
 fi
 
