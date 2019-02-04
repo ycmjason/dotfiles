@@ -93,7 +93,7 @@ done
 # install node with n
 echo "# Installing node with n"
 if [ `stat -c %U /usr/local` != $USER ]; then
-  run "sudo -k chown -R $USER /usr/local/"
+  run "sudo -k chown -R $USER /usr/local/*"
 fi
 run "n lts"
 run "n stable"
