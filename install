@@ -139,6 +139,7 @@ done
 
 
 # copy dot files
+echo `which cp`
 for filename in $DOT_FILES; do
   echo "# Copying ${filename}"
   from_file="${SCRIPT_PATH}/${filename}"
