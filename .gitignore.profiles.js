@@ -4,8 +4,12 @@ var common = [
 ];
 
 var node = common.concat([
+  'dist',
+  '.cache',
   'node_modules',
   'npm-debug.log*',
+  '.env.local',
+  '.env.*.local',
 ]);
 
 module.exports = {

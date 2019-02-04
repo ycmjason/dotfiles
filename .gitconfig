@@ -4,3 +4,6 @@ email = me@ycmjason.com
 
 [push]
 default = simple
+
+[core]
+excludesfile = /Users/ycmjason/.gitignore

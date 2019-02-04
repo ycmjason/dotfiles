@@ -1,2 +1,4 @@
-.*.swp
+.*.sw*
+jsconfig.json
+tsconfig.json
 .DS_Store
